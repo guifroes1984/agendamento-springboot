@@ -1,12 +1,17 @@
 package br.com.guifroes1984.agenda.domain.entities;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -18,6 +23,12 @@ public class Area implements Serializable {
 	private Integer id;
 
 	private String nome;
+
+	@ManyToMany
+	@JoinTable(name = "TBL_AREA_PROFISSIONAL", 
+				joinColumns = @JoinColumn(name = "AREA_ID"), 
+				inverseJoinColumns = @JoinColumn(name = "PROFISSIONAL_ID"))
+	private Set<Profissional> profissionais = new HashSet<>();
 
 	public Integer getId() {
 		return id;
@@ -33,6 +44,14 @@ public class Area implements Serializable {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public Set<Profissional> getProfissionais() {
+		return profissionais;
+	}
+
+	public void setProfissionais(Set<Profissional> profissionais) {
+		this.profissionais = profissionais;
 	}
 
 	@Override
