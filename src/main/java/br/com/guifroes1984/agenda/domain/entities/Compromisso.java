@@ -23,36 +23,36 @@ public class Compromisso {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(columnDefinition = "TIMESTAMP WITH TIME ZONE")
+	@Column(columnDefinition = "TIMESTAMP WITH TIME ZONE", nullable = false)
 	private LocalDate data;
 
-	@Column(columnDefinition = "TIME WITH TIME ZONE")
+	@Column(columnDefinition = "TIME WITH TIME ZONE", nullable = false)
 	private LocalTime horarioInicio;
 
-	@Column(columnDefinition = "TIME WITH TIME ZONE")
+	@Column(columnDefinition = "TIME WITH TIME ZONE", nullable = false)
 	private LocalTime horarioTermino;
 
 	@Enumerated(EnumType.STRING)
-	@Column(length = 10)
+	@Column(length = 10, nullable = false)
 	private CompromissoStatus status = CompromissoStatus.ABERTO;
 
 	@Column(length = 1024)
 	private String comentarios;
 
 	@ManyToOne
-	@JoinColumn(name = "CLIENTE_ID")
+	@JoinColumn(name = "CLIENTE_ID", nullable = false)
 	private Cliente cliente;
 
 	@ManyToOne
-	@JoinColumn(name = "PROFISSIONAL_ID")
+	@JoinColumn(name = "PROFISSIONAL_ID", nullable = false)
 	private Profissional profissional;
 
 	@ManyToOne
-	@JoinColumn(name = "AREA_ID")
+	@JoinColumn(name = "AREA_ID", nullable = false)
 	private Area area;
 
 	@ManyToOne
-	@JoinColumn(name = "COMPROMISSO_TIPO_ID")
+	@JoinColumn(name = "COMPROMISSO_TIPO_ID", nullable = false)
 	private CompromissoTipo compromissoTipo;
 
 	public Long getId() {
