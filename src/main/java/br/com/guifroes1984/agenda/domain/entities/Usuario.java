@@ -3,6 +3,7 @@ package br.com.guifroes1984.agenda.domain.entities;
 import java.util.HashSet;
 import java.util.Set;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
@@ -15,7 +16,9 @@ import jakarta.persistence.Table;
 @PrimaryKeyJoinColumn(name = "PESSOA_ID")
 public class Usuario extends Pessoa {
 
+	@Column(nullable = false, unique = true)
 	private String email;
+	
 	private String password;
 
 	@ManyToMany
