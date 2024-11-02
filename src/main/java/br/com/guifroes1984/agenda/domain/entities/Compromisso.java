@@ -44,6 +44,10 @@ public class Compromisso {
 	@JoinColumn(name = "PROFISSIONAL_ID")
 	private Profissional profissional;
 
+	@ManyToOne
+	@JoinColumn(name = "AREA_ID")
+	private Area area;
+
 	public Long getId() {
 		return id;
 	}
@@ -106,6 +110,14 @@ public class Compromisso {
 
 	public void setProfissional(Profissional profissional) {
 		this.profissional = profissional;
+	}
+
+	public Area getArea() {
+		return area;
+	}
+
+	public void setArea(Area area) {
+		this.area = area;
 	}
 
 	@Override

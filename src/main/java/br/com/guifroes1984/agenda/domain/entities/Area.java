@@ -1,7 +1,9 @@
 package br.com.guifroes1984.agenda.domain.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -12,6 +14,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -29,6 +32,9 @@ public class Area implements Serializable {
 				joinColumns = @JoinColumn(name = "AREA_ID"), 
 				inverseJoinColumns = @JoinColumn(name = "PROFISSIONAL_ID"))
 	private Set<Profissional> profissionais = new HashSet<>();
+	
+	@OneToMany(mappedBy = "area")
+	private List<Compromisso> compromissos = new ArrayList<>();
 
 	public Integer getId() {
 		return id;
