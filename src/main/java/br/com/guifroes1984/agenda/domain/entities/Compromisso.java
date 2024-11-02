@@ -48,6 +48,10 @@ public class Compromisso {
 	@JoinColumn(name = "AREA_ID")
 	private Area area;
 
+	@ManyToOne
+	@JoinColumn(name = "COMPROMISSO_TIPO_ID")
+	private CompromissoTipo compromissoTipo;
+
 	public Long getId() {
 		return id;
 	}
@@ -118,6 +122,14 @@ public class Compromisso {
 
 	public void setArea(Area area) {
 		this.area = area;
+	}
+
+	public CompromissoTipo getCompromissoTipo() {
+		return compromissoTipo;
+	}
+
+	public void setCompromissoTipo(CompromissoTipo compromissoTipo) {
+		this.compromissoTipo = compromissoTipo;
 	}
 
 	@Override
