@@ -23,10 +23,13 @@ public class Compromisso {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@Column(columnDefinition = "TIMESTAMP WITH TIME ZONE")
 	private LocalDate data;
 
+	@Column(columnDefinition = "TIME WITH TIME ZONE")
 	private LocalTime horarioInicio;
 
+	@Column(columnDefinition = "TIME WITH TIME ZONE")
 	private LocalTime horarioTermino;
 
 	@Enumerated(EnumType.STRING)
