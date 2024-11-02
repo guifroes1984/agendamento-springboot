@@ -1,8 +1,11 @@
 package br.com.guifroes1984.agenda.domain.entities;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 
@@ -12,8 +15,11 @@ import jakarta.persistence.Table;
 public class Cliente extends Pessoa {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private LocalDate dataDeNascimento;
+
+	@OneToMany(mappedBy = "cliente")
+	private List<Compromisso> compromissos = new ArrayList<>();
 
 	public LocalDate getDataDeNascimento() {
 		return dataDeNascimento;
@@ -21,6 +27,14 @@ public class Cliente extends Pessoa {
 
 	public void setDataDeNascimento(LocalDate dataDeNascimento) {
 		this.dataDeNascimento = dataDeNascimento;
+	}
+
+	public List<Compromisso> getCompromissos() {
+		return compromissos;
+	}
+
+	public void setCompromissos(List<Compromisso> compromissos) {
+		this.compromissos = compromissos;
 	}
 
 }
