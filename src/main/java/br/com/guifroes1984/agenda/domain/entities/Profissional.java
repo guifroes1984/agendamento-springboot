@@ -32,6 +32,9 @@ public class Profissional extends Pessoa {
 	@JoinColumn(name = "PROFISSIONAL_ID")
 	private List<TrabalhoCronogramaItem> trabalhoCronogramaItens = new ArrayList<>();
 	
+	@OneToMany(mappedBy = "profissional")
+	private List<Compromisso> compromissos = new ArrayList<>();
+	
 	public void adicionaTrabalhoCronogramaItem(DayOfWeek diaDaSemana, LocalTime horarioInicio, LocalTime horarioTermino, int atendimentos, int duracaoAtendimentos) {
 		TrabalhoCronogramaItem tci = new TrabalhoCronogramaItem(diaDaSemana, horarioInicio, horarioTermino, atendimentos, duracaoAtendimentos);
 		trabalhoCronogramaItens.add(tci);

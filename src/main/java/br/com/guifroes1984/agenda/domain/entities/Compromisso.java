@@ -40,6 +40,10 @@ public class Compromisso {
 	@JoinColumn(name = "CLIENTE_ID")
 	private Cliente cliente;
 
+	@ManyToOne
+	@JoinColumn(name = "PROFISSIONAL_ID")
+	private Profissional profissional;
+
 	public Long getId() {
 		return id;
 	}
@@ -94,6 +98,14 @@ public class Compromisso {
 
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
+	}
+
+	public Profissional getProfissional() {
+		return profissional;
+	}
+
+	public void setProfissional(Profissional profissional) {
+		this.profissional = profissional;
 	}
 
 	@Override
