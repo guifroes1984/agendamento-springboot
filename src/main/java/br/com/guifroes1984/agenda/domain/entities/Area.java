@@ -28,11 +28,9 @@ public class Area implements Serializable {
 	private String nome;
 
 	@ManyToMany
-	@JoinTable(name = "TBL_AREA_PROFISSIONAL", 
-				joinColumns = @JoinColumn(name = "AREA_ID"), 
-				inverseJoinColumns = @JoinColumn(name = "PROFISSIONAL_ID"))
+	@JoinTable(name = "TBL_AREA_PROFISSIONAL", joinColumns = @JoinColumn(name = "AREA_ID"), inverseJoinColumns = @JoinColumn(name = "PROFISSIONAL_ID"))
 	private Set<Profissional> profissionais = new HashSet<>();
-	
+
 	@OneToMany(mappedBy = "area")
 	private List<Compromisso> compromissos = new ArrayList<>();
 
@@ -75,6 +73,11 @@ public class Area implements Serializable {
 			return false;
 		Area other = (Area) obj;
 		return Objects.equals(id, other.id);
+	}
+
+	@Override
+	public String toString() {
+		return "Area [id=" + id + ", nome=" + nome + "]";
 	}
 
 }

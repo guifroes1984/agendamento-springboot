@@ -56,4 +56,11 @@ public class Profissional extends Pessoa {
 		this.ativo = ativo;
 	}
 
+	@Override
+	public String toString() {
+		return "Profissional [ativo=" + ativo + " " + super.toString() + "]";
+	}
+	
+	
+
 }

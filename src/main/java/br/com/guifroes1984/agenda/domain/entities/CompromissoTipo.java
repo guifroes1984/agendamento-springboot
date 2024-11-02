@@ -47,4 +47,9 @@ public class CompromissoTipo {
 		return Objects.equals(id, other.id);
 	}
 
+	@Override
+	public String toString() {
+		return "CompromissoTipo [id=" + id + ", tipo=" + tipo + "]";
+	}
+
 }

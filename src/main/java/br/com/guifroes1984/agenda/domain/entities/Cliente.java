@@ -37,4 +37,9 @@ public class Cliente extends Pessoa {
 		this.compromissos = compromissos;
 	}
 
+	@Override
+	public String toString() {
+		return " Cliente [dataDeNascimento=" + dataDeNascimento + " " + super.toString() + "]";
+	}
+
 }

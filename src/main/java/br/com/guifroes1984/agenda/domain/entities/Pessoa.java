@@ -18,12 +18,12 @@ import jakarta.persistence.Table;
 public class Pessoa implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
-	
+
 	@Column(length = 20)
 	private String telefone;
 
@@ -66,6 +66,11 @@ public class Pessoa implements Serializable {
 			return false;
 		Pessoa other = (Pessoa) obj;
 		return Objects.equals(id, other.id);
+	}
+
+	@Override
+	public String toString() {
+		return "Pessoa [id=" + id + ", nome=" + nome + ", telefone=" + telefone + "]";
 	}
 
 }
