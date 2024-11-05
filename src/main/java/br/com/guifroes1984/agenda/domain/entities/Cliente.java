@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.guifroes1984.agenda.dto.ClienteResponse;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrimaryKeyJoinColumn;
@@ -35,6 +36,15 @@ public class Cliente extends Pessoa {
 
 	public void setCompromissos(List<Compromisso> compromissos) {
 		this.compromissos = compromissos;
+	}
+	
+	public ClienteResponse toDTO() {
+		ClienteResponse clienteResponse = new ClienteResponse();
+		clienteResponse.setId(getId());
+		clienteResponse.setNome(getNome());
+		clienteResponse.setTelefone(getTelefone());
+		clienteResponse.setDataDeNascimento(dataDeNascimento);
+		return clienteResponse;
 	}
 
 	@Override
