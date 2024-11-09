@@ -17,7 +17,7 @@ public class ClienteService {
 	
 	public List<ClienteResponse> getAll() {
 		
-		return clienteRepository.findAll()
+		return clienteRepository.buscarTodos("MA")
 				.stream()
 				.map(c -> c.toDTO())
 				.collect(Collectors.toList());
